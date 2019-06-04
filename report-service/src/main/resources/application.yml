@@ -19,11 +19,11 @@ logging:
       hibernate: 
         type: tracel
         
-security:
-  oauth2:
-    resource:
-      token-info-uri: http://localhost:8191/oauth/check_token
-      
-    client:
-      client-id: web
-      client-secret: web
+#security:
+#  oauth2:
+#    resource:
+#      token-info-uri: http://localhost:8191/oauth/check_token
+#      
+#    client:
+#      client-id: web
+#      client-secret: web
