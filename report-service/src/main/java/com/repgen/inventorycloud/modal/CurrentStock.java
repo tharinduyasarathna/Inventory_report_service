@@ -15,6 +15,7 @@ public class CurrentStock {
 	private Integer uomId;
 	private Integer brandId;
 	private Double quantity;
+	
 	public Integer getId() {
 		return id;
 	}

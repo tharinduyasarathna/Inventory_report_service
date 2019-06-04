@@ -1,5 +1,7 @@
 package com.repgen.inventorycloud.service;
 
-public interface CriticalStockService {
+import com.repgen.inventorycloud.modal.CriticalItem;
 
+public interface CriticalStockService {
+	 String ctriticalItems();
 }
