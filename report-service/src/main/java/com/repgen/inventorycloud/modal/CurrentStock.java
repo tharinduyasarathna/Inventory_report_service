@@ -8,13 +8,14 @@ import javax.persistence.Id;
 
 
 public class CurrentStock {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Integer id;
 	private Integer itemId;
 	private Integer uomId;
 	private Integer brandId;
 	private Double quantity;
+	
+	
 	
 	public Integer getId() {
 		return id;

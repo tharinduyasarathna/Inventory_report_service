@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -23,12 +24,15 @@ public class CriticalItem {
 	
 	private Long id;
     private String name;
-	private String brand;
-	private String uOm;
+	private Brand brand;
+	private UOM uom;
 	private Integer quentity;
+	
+	
 	private Integer criticalLevel;
 	
 	
+
 	public Long getId() {
 		return id;
 	}
@@ -41,17 +45,17 @@ public class CriticalItem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBrand() {
+	public Brand getBrand() {
 		return brand;
 	}
-	public void setBrand(String brand) {
+	public void setBrand(Brand brand) {
 		this.brand = brand;
 	}
-	public String getuOm() {
-		return uOm;
+	public UOM getuOm() {
+		return uom;
 	}
-	public void setuOm(String uOm) {
-		this.uOm = uOm;
+	public void setuOm(UOM uOm) {
+		this.uom = uOm;
 	}
 	public Integer getQuentity() {
 		return quentity;

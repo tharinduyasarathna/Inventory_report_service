@@ -9,8 +9,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
+//import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -31,9 +31,9 @@ public class StockMovementServiceImpl implements StockMovementService{
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders httpHeaders = new HttpHeaders();
 		
-		OAuth2AuthenticationDetails details =(OAuth2AuthenticationDetails)
-				SecurityContextHolder.getContext().getAuthentication().getDetails();
-		httpHeaders.add("Authorization","bearer".concat(details.getTokenValue()));
+//		OAuth2AuthenticationDetails details =(OAuth2AuthenticationDetails)
+//				SecurityContextHolder.getContext().getAuthentication().getDetails();
+//		httpHeaders.add("Authorization","bearer".concat(details.getTokenValue()));
 		
 		ResponseEntity<StockMovementResponse>responseEntity;
 		HttpEntity<String>entity = new HttpEntity<>("",httpHeaders);
