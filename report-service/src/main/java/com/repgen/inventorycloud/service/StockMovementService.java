@@ -4,5 +4,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface StockMovementService {
 
-	ResponseEntity<?> fetchdetails(String date,Integer itemId,Integer uomId,Integer brandId);
+	ResponseEntity<?> fetchdetails(Integer itemId,Integer uomId,Integer brandId);
 }

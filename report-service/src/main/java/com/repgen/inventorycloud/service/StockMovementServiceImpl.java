@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -25,10 +26,13 @@ import com.repgen.inventorycloud.modal.TransactionLog;
 @Service
 public class StockMovementServiceImpl implements StockMovementService{
 
+	@Autowired
+	RestTemplate restTemplate;
+	
 	@Override
-	public ResponseEntity<?> fetchdetails(String date, Integer itemId, Integer uomId, Integer brandId) {
+	public ResponseEntity<?> fetchdetails( Integer itemId, Integer uomId, Integer brandId) {
 		
-		RestTemplate restTemplate = new RestTemplate();
+//		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders httpHeaders = new HttpHeaders();
 		
 //		OAuth2AuthenticationDetails details =(OAuth2AuthenticationDetails)
@@ -37,8 +41,8 @@ public class StockMovementServiceImpl implements StockMovementService{
 		
 		ResponseEntity<StockMovementResponse>responseEntity;
 		HttpEntity<String>entity = new HttpEntity<>("",httpHeaders);
-		responseEntity = restTemplate.exchange("http://localhost:8080/stock/openstock/master"
-				.concat(String.valueOf("/"+date+"/"+brandId+"/"+itemId+"/"+uomId)),HttpMethod.GET,entity,StockMovementResponse.class);
+		responseEntity = restTemplate.exchange("http://stock-service/stock/openstock/master"
+				.concat(String.valueOf("/"+brandId+"/"+itemId+"/"+uomId)),HttpMethod.GET,entity,StockMovementResponse.class);
 //		Employee employee2 = optional.get();
 //		employee2.setAllocation(responseEntity.getBody());
 		StockMovementResponse response = responseEntity.getBody();
